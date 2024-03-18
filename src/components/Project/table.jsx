@@ -14,7 +14,7 @@ const Table = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3500/display")
+    fetch("https://intense-dawn-79194-9e92add1c908.herokuapp.com/display")
       .then((res) => {
         if (!res.ok) {
           throw new Error(`HTTP error! Status: ${res.status}`);
@@ -27,7 +27,7 @@ const Table = () => {
       .catch((error) => console.log(error));
   }, []);
   const handleEdit = (id) => {
-    fetch("http://localhost:3500/display/" + id)
+    fetch("https://intense-dawn-79194-9e92add1c908.herokuapp.com/display/" + id)
       .then((res) => {
         if (!res.ok) {
           throw new Error(`HTTP error! Status: ${res.status}`);
@@ -43,7 +43,10 @@ const Table = () => {
   };
 
   const handleDelete = (id) => {
-    fetch("http://localhost:3500/delete/" + id, { method: "delete" })
+    fetch(
+      "https://intense-dawn-79194-9e92add1c908.herokuapp.com/delete/" + id,
+      { method: "delete" }
+    )
       .then((res) => {
         return res.json();
       })
@@ -64,10 +67,13 @@ const Table = () => {
     formData.append("description", editedProject.description);
     formData.append("image", editedProject.img);
 
-    fetch("http://localhost:3500/update/" + editID, {
-      method: "put",
-      body: formData,
-    })
+    fetch(
+      "https://intense-dawn-79194-9e92add1c908.herokuapp.com/update/" + editID,
+      {
+        method: "put",
+        body: formData,
+      }
+    )
       .then((response) => response, setEditID(-1))
       .then((project) => {
         console.log("Server Response:", project);
@@ -163,7 +169,10 @@ const Table = () => {
                       height: "150px",
                       margin: 0,
                     }}
-                    src={`http://localhost:3500/project_image/` + project.img}
+                    src={
+                      `https://intense-dawn-79194-9e92add1c908.herokuapp.com/project_image/` +
+                      project.img
+                    }
                     alt="img"
                   />
                 </td>

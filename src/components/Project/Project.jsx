@@ -32,7 +32,7 @@ const Project = () => {
     formData.append("description", description);
     formData.append("image", image);
 
-    fetch("http://localhost:3500/project", {
+    fetch("https://intense-dawn-79194-9e92add1c908.herokuapp.com/project", {
       method: "post",
       body: formData,
     })

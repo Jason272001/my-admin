@@ -31,13 +31,13 @@ const App = () => {
 
   const onRouteChange = (data) => {
     if (data === "signin") {
-      window.localStorage.removeItem("IsSignIn");
+      setState(initialState);
     } else if (data === "home") {
       setState((prevState) => ({
         ...prevState,
         IsSignIn: true,
       }));
-      window.localStorage.setItem("IsSignIn", true);
+      setState({ IsSignIn: true });
     }
 
     setState((prevState) => ({
