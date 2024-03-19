@@ -19,6 +19,7 @@ const App = () => {
   const [state, setState] = useState(initialState);
 
   const loadUser = (data) => {
+    console.log("Loading user:", data);
     setState((prevState) => ({
       ...prevState,
       user: {
@@ -64,8 +65,8 @@ const App = () => {
         <div>
           <Nav
             onRouteChange={onRouteChange}
-            name={state.user.name}
-            email={state.user.email}
+            name={state.user ? state.user.name : ""}
+            email={state.user ? state.user.email : ""}
           />
           <Project />
         </div>
@@ -76,8 +77,8 @@ const App = () => {
         <div>
           <Nav
             onRouteChange={onRouteChange}
-            name={state.user.name}
-            email={state.user.email}
+            name={state.user ? state.user.name : ""}
+            email={state.user ? state.user.email : ""}
           />
           <Register loadUser={loadUser} onRouteChange={onRouteChange} />
         </div>
